@@ -44,7 +44,8 @@ export default {
 <style scoped>
     .header{
         width: 100%;
-        background-color: #00aaff;
+        margin: 0;
+        background-color: var(--primary-blue);
         color : #ffffff;
         display: flex;
         flex-direction: column;
@@ -72,8 +73,9 @@ export default {
 
     .navigation{
         width: 100%;
+        margin: 0;
         height: 64px;
-        background-color: #008ad0;
+        background-color: var(--secondary-blue);
         display: flex;
         align-items: center;
         justify-content: space-between;
