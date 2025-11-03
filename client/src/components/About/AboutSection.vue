@@ -1,51 +1,83 @@
 <template>
   <section class="about">
-    <div class="container">
-      <div class="about-content">
-        <div class="about-image">
-          <img 
-            :src="aboutImage" 
-            alt="À propos de Zen Avec Nous" 
+    <div class="about-hero">
+      <div class="container hero-container">
+        <h1 class="hero-title">À Propos de Nous</h1>
+      </div>
+    </div>
+
+    <div class="history container">
+      <div class="history-image">
+        <img
+          :src="aboutImage"
+          alt="Auxiliaire de vie apportant un accompagnement bienveillant"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="history-content">
+        <p class="section-label">Authenticité</p>
+        <h2 class="section-title">Notre Histoire</h2>
+        <p class="section-text">
+          Zen Avec Nous est une entreprise dévouée au soutien et à l’accompagnement des personnes âgées, handicapées et nécessitant de l’aide quotidienne. Nous offrons une gamme complète de services pour répondre à leurs besoins avec compassion et professionnalisme.
+        </p>
+        <p class="section-text">
+          Fondée avec la mission d’apporter du réconfort et de l’assistance aux personnes vulnérables, Zen Avec Nous s’engage à offrir des services de qualité et personnalisés pour améliorer la qualité de vie de nos bénéficiaires.
+        </p>
+      </div>
+    </div>
+
+    <div class="values">
+      <div class="container values-container">
+        <p class="section-label">Nos Valeurs</p>
+        <h2 class="section-title">Nos Engagements et Principes</h2>
+
+        <div class="values-image">
+          <img
+            :src="aboutImage"
+            alt="Accompagnement au quotidien d’une personne âgée"
             loading="lazy"
           />
         </div>
-        
-        <div class="about-text">
-          <div class="about-header">
-            <p class="about-prefix">découvrez notre histoire</p>
-            <h2 class="about-title">A propos de nous</h2>
-          </div>
-          
-          <p class="about-description">
-            Zen Avec Nous est une entreprise spécialisée dans l'aide à domicile pour les personnes âgées et/ou dépendantes, 
-            ainsi que dans les services de nettoyage. Nous nous engageons à vous offrir des services de qualité et à vous 
-            garantir la tranquillité d'esprit.
-          </p>
-          
-          <div class="about-features">
-            <div class="feature-item">
-              <div class="feature-icon">
-                <svg viewBox="0 0 512 512" width="24" height="24">
-                  <path d="M18.92 351.2l108.5-46.52c12.78-5.531 27.77-1.801 36.45 8.98l44.09 53.82c69.25-34 125.5-90.31 159.5-159.5l-53.81-44.04c-10.75-8.781-14.41-23.69-8.974-36.47l46.51-108.5c6.094-13.91 21.1-21.52 35.79-18.11l100.8 23.25c14.25 3.25 24.22 15.8 24.22 30.46c0 252.3-205.2 457.5-457.5 457.5c-14.67 0-27.18-9.968-30.45-24.22l-23.25-100.8C-2.571 372.4 5.018 357.2 18.92 351.2z" fill="currentColor"/>
-                </svg>
-              </div>
-              <div class="feature-content">
-                <h6 class="feature-title">Lundi au Vendredi de 8h à 19h</h6>
-                <p class="feature-text"><strong>+33 9 82 67 32 32</strong></p>
-              </div>
-            </div>
-          </div>
+
+        <div class="values-grid">
+          <article class="value-card">
+            <h3 class="value-title">Bienveillance</h3>
+            <p class="value-text">
+              Nous traitons chaque individu avec compassion et gentillesse, en veillant à leur bien-être et à leur confort à tout moment.
+            </p>
+          </article>
+
+          <article class="value-card">
+            <h3 class="value-title">Professionnalisme</h3>
+            <p class="value-text">
+              Nos équipes sont dévouées à offrir des services de haute qualité en respectant les normes d’éthique et d’excellence professionnelle.
+            </p>
+          </article>
+
+          <article class="value-card">
+            <h3 class="value-title">Engagement</h3>
+            <p class="value-text">
+              Nous nous engageons à accompagner nos bénéficiaires avec dévouement et responsabilité, en étant présents à chaque étape de leur parcours avec nous.
+            </p>
+          </article>
         </div>
       </div>
     </div>
+
+    <CtaSection :image="aboutImage" />
   </section>
 </template>
 
 <script>
 import aboutImage from '@/assets/pexels-photo-7551583.jpeg'
+import CtaSection from '@/components/All/cta.vue'
 
 export default {
   name: 'AboutSection',
+  components: {
+    CtaSection
+  },
   data() {
     return {
       aboutImage
@@ -56,43 +88,57 @@ export default {
 
 <style scoped>
 .about {
-  padding: 4rem 0;
   background-color: var(--color-white);
+  color: var(--color-text);
+}
+
+.about-hero {
+  background: var(--color-dark);
+  padding: 5rem 0;
+}
+
+.hero-container {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-title {
+  margin: 0;
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: 700;
+  color: var(--color-white);
+  text-align: center;
+  font-family: 'Archivo', sans-serif;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
-.about-content {
+.history {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
+  padding: 5rem 0;
 }
 
-.about-image {
+.history-image {
   position: relative;
 }
 
-.about-image img {
+.history-image img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  max-height: 420px;
   border-radius: 12px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
 }
 
-.about-text {
-  padding-left: 2rem;
-}
-
-.about-header {
-  margin-bottom: 1.5rem;
-}
-
-.about-prefix {
+.section-label {
   color: var(--color-primary);
   font-size: 0.9rem;
   font-weight: 600;
@@ -101,106 +147,99 @@ export default {
   margin-bottom: 0.5rem;
 }
 
-.about-title {
-  font-size: 2.5rem;
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
   font-weight: 700;
   color: var(--color-dark);
   margin: 0;
   font-family: 'Archivo', sans-serif;
 }
 
-.about-description {
-  font-size: 1.1rem;
+.section-text {
+  font-size: 1.05rem;
   color: var(--color-text);
   line-height: 1.7;
-  margin-bottom: 2rem;
+  margin: 0 0 1.5rem 0;
 }
 
-.about-features {
+.values {
+  background: var(--color-light-gray, #f4f5f7);
+  padding: 5rem 0;
+}
+
+.values-container {
+  text-align: center;
+}
+
+.values-image {
+  margin: 3rem auto 2.5rem;
+  max-width: 820px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
+}
+
+.values-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
   margin-top: 2rem;
 }
 
-.feature-item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.5rem;
-  background: var(--color-light-pink);
-  border-radius: 8px;
-  border-left: 4px solid var(--color-primary);
+.value-card {
+  background: var(--color-white);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  text-align: left;
 }
 
-.feature-icon {
-  color: var(--color-primary);
-  flex-shrink: 0;
-}
-
-.feature-content {
-  flex: 1;
-}
-
-.feature-title {
-  font-size: 1rem;
-  font-weight: 600;
+.value-title {
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 700;
   color: var(--color-dark);
-  margin: 0 0 0.5rem 0;
 }
 
-.feature-text {
-  font-size: 1.1rem;
-  color: var(--color-text);
+.value-text {
   margin: 0;
+  color: var(--color-text);
+  line-height: 1.6;
 }
 
-/* Mobile Styles */
 @media (max-width: 768px) {
-  .about {
-    padding: 3rem 0;
-  }
-  
   .container {
     padding: 0 1rem;
   }
   
-  .about-content {
+  .history {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 2.5rem;
+    padding: 3.5rem 0;
   }
   
-  .about-text {
-    padding-left: 0;
+  .values {
+    padding: 3.5rem 0;
   }
-  
-  .about-title {
-    font-size: 2rem;
-  }
-  
-  .about-description {
-    font-size: 1rem;
-  }
-  
-  .feature-item {
-    padding: 1rem;
+
+  .values-image {
+    margin: 2rem auto;
   }
 }
 
 @media (max-width: 480px) {
-  .about {
-    padding: 2rem 0;
+  .hero-title {
+    font-size: 2.25rem;
   }
-  
-  .about-title {
-    font-size: 1.75rem;
-  }
-  
-  .about-description {
-    font-size: 0.95rem;
-  }
-  
-  .feature-item {
-    flex-direction: column;
-    text-align: center;
-    gap: 0.5rem;
+
+  .values-grid {
+    gap: 1.5rem;
   }
 }
 </style>

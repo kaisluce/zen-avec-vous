@@ -9,25 +9,25 @@
         
         <form class="contact-form" @submit.prevent="submitForm">
           <div class="form-group">
-            <label for="firstName" class="form-label">Nom *</label>
+            <label for="firstName" class="form-label">Nom complet *</label>
             <input 
               type="text" 
               id="firstName" 
               v-model="form.firstName"
               class="form-input" 
-              placeholder="Nom"
+              placeholder="Nom complet"
               required
             />
           </div>
           
           <div class="form-group">
-            <label for="email" class="form-label">E-mail *</label>
+            <label for="email" class="form-label">Adresse email *</label>
             <input 
               type="email" 
               id="email" 
               v-model="form.email"
               class="form-input" 
-              placeholder="Email"
+              placeholder="Adresse email"
               required
             />
           </div>
@@ -69,7 +69,7 @@
           </div>
           
           <button type="submit" class="form-submit" :disabled="isSubmitting">
-            <span v-if="!isSubmitting">Envoyer</span>
+            <span v-if="!isSubmitting">Envoyer le message</span>
             <span v-else>Envoi en cours...</span>
           </button>
         </form>
